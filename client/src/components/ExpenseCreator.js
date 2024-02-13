@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import {getAllPayeeNames} from '../services/expense-utils'
+import { useRef } from 'react';
 
 const ExpenseCreator = ({expenseItems}) => {
 
@@ -13,17 +14,27 @@ const ExpenseCreator = ({expenseItems}) => {
 
 	const payeeNames = getAllPayeeNames(expenseItems);
 
+	const expenseDescriptionRef = useRef(null);
+  const payeeNameRef = useRef(null);
+  const priceRef = useRef(null);
+  const dateRef = useRef(null);
+
+	const handleNewExpenseCreation = (event) => {
+		event.preventDefault();
+
+	}
+
 	function expenseForm() {
 		return (
-			<Form>
+			<Form onSubmit={handleNewExpenseCreation}>
 				<Form.Group className="mb-3" controlId="expenseDescription">
 					<Form.Label>Expense Description</Form.Label>
-					<Form.Control type="text" placeholder="Enter expense description" />
+					<Form.Control type="text" placeholder="Enter expense description" ref={expenseDescriptionRef}/>
 				</Form.Group>
 	
 				<Form.Group className="mb-3" controlId="payeeName">
 					<Form.Label>Payee Name</Form.Label>
-					<Form.Select aria-label="Default select example">
+					<Form.Select aria-label="Default select example" ref={payeeNameRef}>
       			<option>Select a payee</option>
 						{
 							payeeNames.map( (payeeName) => {
@@ -37,12 +48,12 @@ const ExpenseCreator = ({expenseItems}) => {
 
 				<Form.Group className="mb-3" controlId="price">
 					<Form.Label>Price</Form.Label>
-					<Form.Control type="number" placeholder="Enter expense Amount" />
+					<Form.Control type="number" placeholder="Enter expense Amount" ref={priceRef}/>
 				</Form.Group>
 
 				<Form.Group className="mb-3" controlId="expenseDate">
 					<Form.Label>Expense Description</Form.Label>
-					<Form.Control type="date"/>
+					<Form.Control type="date" ref={dateRef}/>
 				</Form.Group>
 
 				<Button variant="secondary" onClick={handleClose}>
