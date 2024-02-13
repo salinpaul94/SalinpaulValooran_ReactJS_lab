@@ -41,6 +41,13 @@
       "payeeName": "Ramesh",
       "price": 100,
       "date": "2022-02-02T00:00:00.000Z"
+    },
+    {
+      "id": "5e8c",
+      "expenseDescription": "Trip to canada",
+      "payeeName": "Ramesh",
+      "price": 10,
+      "date": "2024-02-22T00:00:00.000Z"
     }
   ]
 }
