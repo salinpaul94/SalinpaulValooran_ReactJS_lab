@@ -2,13 +2,16 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import {getAllPayeeNames} from '../services/expense-utils'
 
-const ExpenseCreator = () => {
+const ExpenseCreator = ({expenseItems}) => {
 
 	const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+	const payeeNames = getAllPayeeNames(expenseItems);
 
 	function expenseForm() {
 		return (
@@ -21,10 +24,14 @@ const ExpenseCreator = () => {
 				<Form.Group className="mb-3" controlId="payeeName">
 					<Form.Label>Payee Name</Form.Label>
 					<Form.Select aria-label="Default select example">
-      			<option>Open this select menu</option>
-      			<option value="1">One</option>
-      			<option value="2">Two</option>
-      			<option value="3">Three</option>
+      			<option>Select a payee</option>
+						{
+							payeeNames.map( (payeeName) => {
+								return (
+									<option value={payeeName}>{payeeName}</option>
+								)
+							})
+						}
     			</Form.Select>
 				</Form.Group>
 
