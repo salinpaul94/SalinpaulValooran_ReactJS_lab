@@ -2,6 +2,15 @@ import Table from 'react-bootstrap/Table';
 
 
 const ExpenseItemsLister = ({expenseItems}) => {
+
+  const formatDate = (dateAsString) => {
+    
+    const dateObj = new Date(dateAsString);
+
+    const formattedDateAsString = dateObj.getDate() + "-" + (1 + dateObj.getMonth()) + "-" + dateObj.getFullYear();
+
+    return formattedDateAsString
+  }
   function expenseItemsTable() {
     return (
     <Table striped bordered hover size="sm">
@@ -22,7 +31,7 @@ const ExpenseItemsLister = ({expenseItems}) => {
                 <td>{index+1}</td>
                 <td>{expenseItem.expenseDescription}</td>
                 <td>{expenseItem.payeeName}</td>
-                <td>{expenseItem.date}</td>
+                <td>{formatDate(expenseItem.date)}</td>
                 <td>{expenseItem.price}</td>
               </tr>
             )
