@@ -6,6 +6,8 @@ import { ExpenseItemsLister } from "./ExpenseItemsLister"
 
 import { useState } from "react"
 
+import {Container} from "react-bootstrap"
+
 const ExpenseTrackerApp = () => {
   
   const [expenseItems, setExpenseItems] = useState([]);
@@ -26,10 +28,10 @@ const ExpenseTrackerApp = () => {
 
    
   return (
-    <div>
+    <Container>
       <h2>Expense Items</h2>
       <ExpenseItemsLister expenseItems={expenseItems}></ExpenseItemsLister>
-    </div>
+    </Container>
   )
 }
 
