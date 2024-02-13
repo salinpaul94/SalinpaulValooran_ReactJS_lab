@@ -1,9 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import { ExpenseTrackerApp } from './components/ExpenseTracker';
 
 function App() {
   return (
-    <div>"Hi How are you"</div>
+    <div className="App">
+      {
+        <ExpenseTrackerApp></ExpenseTrackerApp>
+      }
+    </div>
   ) 
 }
 
