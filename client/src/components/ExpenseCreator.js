@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import {getAllPayeeNames} from '../services/expense-utils'
 import { useRef } from 'react';
+import { createNewExpenseItem } from '../services/expense';
 
 const ExpenseCreator = ({expenseItems}) => {
 
@@ -19,9 +20,24 @@ const ExpenseCreator = ({expenseItems}) => {
   const priceRef = useRef(null);
   const dateRef = useRef(null);
 
-	const handleNewExpenseCreation = (event) => {
+	const handleNewExpenseCreation = async (event) => {
 		event.preventDefault();
 
+		const expenseDescription = expenseDescriptionRef.current.value;
+    const payeeName = payeeNameRef.current.value;
+    const price = parseFloat(priceRef.current.value);
+    const date = new Date(dateRef.current.value);
+
+		const newExpenseItem = {
+      expenseDescription: expenseDescription,
+      payeeName: payeeName,
+      price: price,
+      date: date
+    }
+    const response = await createNewExpenseItem(newExpenseItem)
+    console.log('Response is ' + JSON.stringify(response));
+
+    handleClose();
 	}
 
 	function expenseForm() {
