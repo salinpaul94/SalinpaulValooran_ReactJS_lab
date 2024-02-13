@@ -15,14 +15,27 @@ const ExpenseItemsLister = ({expenseItems}) => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
+        {
+          expenseItems.map( (expenseItem, index) => {
+            return (
+              <tr>
+                <td>{index+1}</td>
+                <td>{expenseItem.expenseDescription}</td>
+                <td>{expenseItem.payeeName}</td>
+                <td>{expenseItem.date}</td>
+                <td>{expenseItem.price}</td>
+              </tr>
+            )
+          })
+        }
       </tbody>
     </Table>
     );
   }
+
+  return (
+    expenseItemsTable()
+  )
 }
+
+export {ExpenseItemsLister}
