@@ -11,7 +11,7 @@ const ExpenseSummary = ({expenseItems}) => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Sl. No</th>
             <th>Payee</th>
             <th>Total Contributed Amount</th>
             <th>Pending Amount</th>

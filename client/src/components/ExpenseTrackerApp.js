@@ -8,6 +8,7 @@ import { useState } from "react"
 
 import {Container} from "react-bootstrap"
 import { ExpenseCreator } from "./ExpenseCreator"
+import { ExpenseSummary } from "./ExpenseSummary"
 
 const ExpenseTrackerApp = () => {
   
@@ -34,6 +35,7 @@ const ExpenseTrackerApp = () => {
 
       <ExpenseCreator expenseItems={expenseItems}></ExpenseCreator>
       <ExpenseItemsLister expenseItems={expenseItems}></ExpenseItemsLister>
+      <ExpenseSummary expenseItems={expenseItems}></ExpenseSummary>
     </Container>
   )
 }
