@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { ExpenseTrackerApp } from './components/ExpenseTracker';
 
