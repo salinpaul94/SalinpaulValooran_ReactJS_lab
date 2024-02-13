@@ -7,7 +7,7 @@ const ExpenseItemsLister = ({expenseItems}) => {
     <Table striped bordered hover size="sm">
       <thead>
         <tr>
-          <th>#</th>
+          <th>Sl. No</th>
           <th>Description</th>
           <th>Payee</th>
           <th>Date</th>
